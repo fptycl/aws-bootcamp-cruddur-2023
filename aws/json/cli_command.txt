@@ -1,0 +1,12 @@
+aws budgets create-budget \
+    --account-id $AWS_ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/notifications-with-subscribers.json
+
+aws sns subscribe \
+    --topic-arn="arn:aws:sns:ca-central-1:806329234304:billing-alarm" \
+    --protocol=email \
+    --notification-endpoint=z_lenk@yahoo.com.sg
+
+
+aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json
