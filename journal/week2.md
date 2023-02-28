@@ -1,5 +1,88 @@
 # Week 2 — Distributed Tracing
 
+## Homework Challenge Week1 (Containers)
+
+## Homework Challenge Week2 (HoneyComb)
+
+## HoneyComb
+
+When creating a new dataset in Honeycomb it will provide all these installation insturctions
+
+
+
+We'll add the following files to our `requirements.txt`
+
+```
+opentelemetry-api 
+opentelemetry-sdk 
+opentelemetry-exporter-otlp-proto-http 
+opentelemetry-instrumentation-flask 
+opentelemetry-instrumentation-requests
+```
+We'll install these dependencies:
+
+```sh
+pip install -r requirements.txt
+```
+
+![image](assets/week2_install_honeycomb.png)
+
+Add to the `app.py`
+
+```py
+from opentelemetry import trace
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+```
+
+
+```py
+# Initialize tracing and an exporter that can send data to Honeycomb
+provider = TracerProvider()
+processor = BatchSpanProcessor(OTLPSpanExporter())
+provider.add_span_processor(processor)
+trace.set_tracer_provider(provider)
+tracer = trace.get_tracer(__name__)
+```
+
+```py
+# Initialize automatic instrumentation with Flask
+app = Flask(__name__)
+FlaskInstrumentor().instrument_app(app)
+RequestsInstrumentor().instrument()
+```
+
+![image](assets/week2_setup_honeycomb.png)
+https://github.com/fptycl/aws-bootcamp-cruddur-2023/blob/main/backend-flask/app.py
+
+Add the following Env Vars to `backend-flask` in docker compose
+
+```yml
+OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
+OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
+OTEL_SERVICE_NAME: "${HONEYCOMB_SERVICE_NAME}"
+```
+![image](assets/week2_env_vars_backend-flask.png)
+
+You'll need to grab the API key from your honeycomb account:
+
+```sh
+export HONEYCOMB_API_KEY=""
+export HONEYCOMB_SERVICE_NAME="Cruddur"
+gp env HONEYCOMB_API_KEY=""
+gp env HONEYCOMB_SERVICE_NAME="Cruddur"
+```
+
+Adding span and attributes
+https://github.com/fptycl/aws-bootcamp-cruddur-2023/blob/main/backend-flask/services/home_activities.py
+
+HoneyComb is able to receive data from our application.
+![image](assets/week2_honeycomb_receiving_data_3.png)
+
+
 ## X-Ray
 
 ### Instrument AWS X-Ray for Flask
@@ -106,72 +189,7 @@ EPOCH=$(date +%s)
 aws xray get-service-graph --start-time $(($EPOCH-600)) --end-time $EPOCH
 ```
 
-## HoneyComb
 
-When creating a new dataset in Honeycomb it will provide all these installation insturctions
-
-
-
-We'll add the following files to our `requirements.txt`
-
-```
-opentelemetry-api 
-opentelemetry-sdk 
-opentelemetry-exporter-otlp-proto-http 
-opentelemetry-instrumentation-flask 
-opentelemetry-instrumentation-requests
-```
-
-We'll install these dependencies:
-
-```sh
-pip install -r requirements.txt
-```
-
-Add to the `app.py`
-
-```py
-from opentelemetry import trace
-from opentelemetry.instrumentation.flask import FlaskInstrumentor
-from opentelemetry.instrumentation.requests import RequestsInstrumentor
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-```
-
-
-```py
-# Initialize tracing and an exporter that can send data to Honeycomb
-provider = TracerProvider()
-processor = BatchSpanProcessor(OTLPSpanExporter())
-provider.add_span_processor(processor)
-trace.set_tracer_provider(provider)
-tracer = trace.get_tracer(__name__)
-```
-
-```py
-# Initialize automatic instrumentation with Flask
-app = Flask(__name__)
-FlaskInstrumentor().instrument_app(app)
-RequestsInstrumentor().instrument()
-```
-
-Add teh following Env Vars to `backend-flask` in docker compose
-
-```yml
-OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
-OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
-OTEL_SERVICE_NAME: "${HONEYCOMB_SERVICE_NAME}"
-```
-
-You'll need to grab the API key from your honeycomb account:
-
-```sh
-export HONEYCOMB_API_KEY=""
-export HONEYCOMB_SERVICE_NAME="Cruddur"
-gp env HONEYCOMB_API_KEY=""
-gp env HONEYCOMB_SERVICE_NAME="Cruddur"
-```
 
 ## CloudWatch Logs
 
