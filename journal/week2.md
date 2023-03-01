@@ -71,9 +71,9 @@ You'll need to grab the API key from your honeycomb account:
 
 ```sh
 export HONEYCOMB_API_KEY=""
-export HONEYCOMB_SERVICE_NAME="Cruddur"
+export HONEYCOMB_SERVICE_NAME="backend-flask"
 gp env HONEYCOMB_API_KEY=""
-gp env HONEYCOMB_SERVICE_NAME="Cruddur"
+gp env HONEYCOMB_SERVICE_NAME="backend-flask"
 ```
 
 Adding span and attributes
@@ -128,7 +128,7 @@ Add `aws/json/xray.json`
       "Priority": 9000,
       "FixedRate": 0.1,
       "ReservoirSize": 5,
-      "ServiceName": "Cruddur",
+      "ServiceName": "backend-flask",
       "ServiceType": "*",
       "Host": "*",
       "HTTPMethod": "*",
@@ -142,13 +142,16 @@ Add `aws/json/xray.json`
 FLASK_ADDRESS="https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
 aws xray create-group \
    --group-name "Cruddur" \
-   --filter-expression "service(\"$FLASK_ADDRESS\") {fault OR error}"
+   --filter-expression "service(\"backend-flask\")"
 ```
-
+![image](assets/week2_xray_group_2.png)
 ```sh
 aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 ```
+![image](assets/week2_xray_sampling_rule.png)
 
+
+We are not using this method. Using the xray-daemon image from aws through Docker-compose
  [Install X-ray Daemon](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html)
 
 [Github aws-xray-daemon](https://github.com/aws/aws-xray-daemon)
@@ -168,19 +171,19 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
     environment:
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
-      AWS_REGION: "us-east-1"
+      AWS_REGION: "ca-central-1"
     command:
       - "xray -o -b xray-daemon:2000"
     ports:
       - 2000:2000/udp
 ```
-
 We need to add these two env vars to our backend-flask in our `docker-compose.yml` file
 
 ```yml
       AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
       AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
 ```
+![image](assets/week2_xray_daemon_1.png)
 
 ### Check service data for last 10 minutes
 
@@ -188,8 +191,10 @@ We need to add these two env vars to our backend-flask in our `docker-compose.ym
 EPOCH=$(date +%s)
 aws xray get-service-graph --start-time $(($EPOCH-600)) --end-time $EPOCH
 ```
+![image](assets/week2_xray_trace.png)
 
-
+### Add custom segment 
+https://github.com/aws/aws-xray-sdk-python#Start%20a%20custom%20segment/subsegment
 
 ## CloudWatch Logs
 
@@ -247,6 +252,7 @@ Set the env var in your backend-flask for `docker-compose.yml`
 
 > passing AWS_REGION doesn't seems to get picked up by boto3 so pass default region instead
 
+![image](assets/week2_cloudwatch.png)
 
 ## Rollbar
 
@@ -316,6 +322,6 @@ def rollbar_test():
     rollbar.report_message('Hello World!', 'warning')
     return "Hello World!"
 ```
-
+![image](assets/week2_rollbar.png)
 
 [Rollbar Flask Example](https://github.com/rollbar/rollbar-flask-example/blob/master/hello.py)
