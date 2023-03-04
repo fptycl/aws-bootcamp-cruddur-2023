@@ -52,4 +52,11 @@ class HomeActivities:
       }
       ]
       span.set_attribute("app.result_length", len(results))
+
+      # Homework challenge Add custom attributes. List all the UserID
+      UserID = []
+      for dict in results:
+        UserID.append(dict['handle'])
+        span.set_attribute("app.UserID", UserID)
+        
       return results
