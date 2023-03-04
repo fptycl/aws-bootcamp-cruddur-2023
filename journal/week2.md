@@ -1,8 +1,14 @@
 # Week 2 — Distributed Tracing
 
-## Homework Challenge Week1 (Containers)
-
 ## Homework Challenge Week2 (HoneyComb)
+
+Add custom attributes to the span. Here we add all the UserID inside the Activities Home.
+![image](assets/week2_homework_set_custom_attributes_1.png)
+![image](assets/week2_homework_set_custom_attributes_2.png)
+
+Also did a simple custom query and save it to board
+![image](assets/week2_homework_run_custom_query_1.png)
+![image](assets/week2_homework_run_custom_query_2.png)
 
 ## HoneyComb
 
@@ -193,8 +199,16 @@ aws xray get-service-graph --start-time $(($EPOCH-600)) --end-time $EPOCH
 ```
 ![image](assets/week2_xray_trace.png)
 
-### Add custom segment 
+### Add subsegment 
+
+![image](assets/week2_xray_subsegment_1.png)
+![image](assets/week2_xray_subsegment_2.png)
+
+Reference:
+
 https://github.com/aws/aws-xray-sdk-python#Start%20a%20custom%20segment/subsegment
+
+https://olley.hashnode.dev/aws-free-cloud-bootcamp-instrumenting-aws-x-ray-subsegments
 
 ## CloudWatch Logs
 
