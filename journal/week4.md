@@ -144,8 +144,8 @@ mkdir /workspace/aws-bootcamp-cruddur-2023/backend-flask/bin
 ```
 
 ```sh
-export CONNECTION_URL="postgresql://postgres:pssword@127.0.0.1:5433/cruddur"
-gp env CONNECTION_URL="postgresql://postgres:pssword@127.0.0.1:5433/cruddur"
+export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
+gp env CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
 ```
 
 We'll create a new bash script `bin/db-connect`
@@ -203,7 +203,7 @@ from pg_stat_activity;"
 #! /usr/bin/bash
 
 NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
-createdb cruddur $NO_DB_CONNECTION_URL
+psql $NO_DB_CONNECTION_URL -c "create database cruddur;"
 ```
 
 ## Shell script to load the schema
