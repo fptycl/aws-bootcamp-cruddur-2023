@@ -225,10 +225,17 @@ schema_path="$(realpath .)/db/schema.sql"
 
 echo $schema_path
 
-NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
-psql $NO_DB_CONNECTION_URL cruddur < $schema_path
+if [ "$1" = "prod" ]; then
+    echo "Use production"
+    CON_URL=$PROD_CONNECTION_URL
+else
+    CON_URL=$CONNECTION_URL
+fi
+
+psql $CON_URL cruddur < $schema_path 
 ```
 ![image](assets/week4_bash_postgres_db_schema_load.png)
+![image](assets/week4_bash_postgres_db_schema_load_2.png)
 
 ## Shell script to load the seed data
 
