@@ -137,6 +137,8 @@ DROP TRIGGER IF EXISTS trig_users_updated_at ON users;
 DROP TRIGGER IF EXISTS trig_activities_updated_at ON activities;
 ```
 
+![image](assets/week4_bash_create_postgres_table.png)
+
 ## Shell Script to Connect to DB
 
 For things we commonly need to do we can create a new directory called `bin`
@@ -172,6 +174,7 @@ To execute the script:
 ```
 
 ![image](assets/week4_bash_connect_postgres_db.png)
+![image](assets/week4_bash_connect_postgres_db_2.png)
 
 ## Shell script to drop the database
 
