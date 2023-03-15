@@ -7,6 +7,8 @@ To connect to psql via the psql client cli tool remember to use the host flag to
 psql -Upostgres --host localhost
 ```
 
+![image](assets/week4_connect_postgres.png)
+
 Common PSQL commands:
 
 ```sql
@@ -53,6 +55,8 @@ We can create the database within the PSQL client
 CREATE database cruddur;
 ```
 
+![image](assets/week4_create_postgres_db.png)
+
 ## Import Script
 
 We'll create a new SQL file called `schema.sql`
@@ -62,7 +66,7 @@ The command to import:
 ```
 psql cruddur < db/schema.sql -h localhost -U postgres
 ```
-
+![image](assets/week4_import_postgres_db_schema.png)
 
 ## Add UUID Extension
 
@@ -178,6 +182,8 @@ NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
 psql $NO_DB_CONNECTION_URL -c "DROP database cruddur;"
 ```
 
+![image](assets/week4_drop_postgres_db.png)
+
 https://askubuntu.com/questions/595269/use-sed-on-a-string-variable-rather-than-a-file
 
 ## See what connections we are using
@@ -205,6 +211,8 @@ from pg_stat_activity;"
 NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
 psql $NO_DB_CONNECTION_URL -c "create database cruddur;"
 ```
+
+![image](assets/week4_bash_create_postgres_db.png)
 
 ## Shell script to load the schema
 
@@ -372,9 +380,11 @@ aws rds create-db-instance \
   --no-deletion-protection
 ```
 
-> This will take about 10-15 mins
+![image](assets/week4_create_rds_2.png)
 
-We can temporarily stop an RDS instance for 4 days when we aren't using it.
+We can temporarily stop an RDS instance for 7 days when we aren't using it.
+
+![image](assets/week4_create_rds_3.png)
 
 ## Connect to RDS via Gitpod
 
