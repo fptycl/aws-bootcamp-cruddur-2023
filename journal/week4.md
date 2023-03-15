@@ -236,7 +236,6 @@ psql $CON_URL cruddur < $schema_path
 ```
 ![image](assets/week4_bash_postgres_db_schema_load.png)
 ![image](assets/week4_bash_postgres_db_schema_load_2.png)
-![image](assets/week4_bash_postgres_db_schema_load_3.png)
 
 ## Shell script to load the seed data
 
@@ -276,13 +275,14 @@ We we can make prints for our shell scripts coloured so we can see what we're do
 
 https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 
-
 ```sh
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
 LABEL="db-schema-load"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 ```
+
+![image](assets/week4_bash_postgres_db_schema_load_3.png)
 
 ## Install Postgres Client
 
