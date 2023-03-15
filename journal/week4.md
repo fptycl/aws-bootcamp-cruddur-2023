@@ -236,6 +236,7 @@ psql $CON_URL cruddur < $schema_path
 ```
 ![image](assets/week4_bash_postgres_db_schema_load.png)
 ![image](assets/week4_bash_postgres_db_schema_load_2.png)
+![image](assets/week4_bash_postgres_db_schema_load_3.png)
 
 ## Shell script to load the seed data
 
