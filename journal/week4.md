@@ -257,6 +257,8 @@ echo $schema_path
 psql $CONNECTION_URL cruddur < $schema_path
 ```
 
+![image](assets/week4_bash_db_seed.png)
+
 ## Easily setup (reset) everything for our database
 
 
