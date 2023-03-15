@@ -228,6 +228,7 @@ echo $schema_path
 NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
 psql $NO_DB_CONNECTION_URL cruddur < $schema_path
 ```
+![image](assets/week4_bash_postgres_db_schema_load.png)
 
 ## Shell script to load the seed data
 
