@@ -171,6 +171,8 @@ To execute the script:
 ./bin/db-connect
 ```
 
+![image](assets/week4_bash_connect_postgres_db.png)
+
 ## Shell script to drop the database
 
 `bin/db-drop`
