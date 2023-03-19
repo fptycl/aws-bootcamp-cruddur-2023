@@ -1,5 +1,8 @@
 from psycopg_pool import ConnectionPool
 import os
+import re
+import sys
+from flask import current_app as app
 
 class Db:
 
@@ -10,15 +13,23 @@ class Db:
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url) 
 
-  def query_commit(self, sql):
+  def query_commit(self, sql, params={}):
+    print("SQL STATEMENT--[commit with returning]-----")
+    print(sql)
+    pattern = r"\bRETURNING\b"
+    is_returning_id = re.search(pattern, sql)
+    
     try:
         conn = self.pool.connection()
         cur = conn.cursor()
-        cur.execute(sql)
-        conn.commit()
+        cur.execute(sql, params)
+        if is_returning_id:
+          returning_id = cur.fetchone()[0]
+        conn.commit() 
+        if is_returning_id:
+          return returning_id
     except Exception as err:
       self.print_sql_err(err)
-      # conn.rollback()
 
   def query_array_json(self, sql):
     print("SQL STATEMENT--[array]-----")
@@ -68,8 +79,6 @@ class Db:
       # print the connect() error
       print ("\npsycopg ERROR:", err, "on line number:", line_num)
       print ("psycopg traceback:", traceback, "-- type:", err_type)
-
-      print("\nextensions.Diagnostics:", err.diag)
 
       # print the pgcode and pgerror exceptions
       print ("pgerror:", err.pgerror)
