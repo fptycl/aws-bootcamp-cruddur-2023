@@ -8,7 +8,6 @@ class CreateActivity:
       'data': None
     }
 
-    user_uuid = ''
    
     now = datetime.now(timezone.utc).astimezone()
 
