@@ -475,6 +475,9 @@ We'll add a command step for postgres:
       source "$THEIA_WORKSPACE_ROOT/backend-flask/db-update-sg-rule"
 ```
 
+Connection to aws rds from gitpod
+![image](assets/week4_aws_postgres_connection_1.png)
+![image](assets/week4_aws_postgres_connection_2.png)
 
 ## Setup Cognito post confirmation lambda
 
@@ -554,3 +557,29 @@ Follow the instructions on https://github.com/AbhimanyuHK/aws-psycopg2 to compil
 ## Add the function to Cognito 
 
 Under the user pool properties add the function as a `Post Confirmation` lambda trigger.
+
+Cognito trigger and insert to db
+![image](assets/week4_cognito_post_confirmation_1.png)
+![image](assets/week4_cognito_post_confirmation_2.png)
+![image](assets/week4_cognito_post_confirmation_3.png)
+![image](assets/week4_cognito_post_confirmation.png)
+
+## Create activity
+
+Encounter error during the crud post. Null on the user_uuid. Removed and it works. 
+However there is a front end error that pops up. Yet to identify the issue.
+The post did inserted into the aws rds.
+
+user_uuid error.
+![image](assets/week4_create_activites_1.png)
+
+There is no user_uuid so remove.
+![image](assets/week4_create_activites_2.png)
+
+Frontend error when crud is press. To be debug
+![image](assets/week4_create_activites_3.png)
+
+Post are inserted in aws rds
+![image](assets/week4_create_activites_4.png)
+![image](assets/week4_create_activites_5.png)
+
