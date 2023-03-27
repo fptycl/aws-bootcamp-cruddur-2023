@@ -6,6 +6,16 @@
 ```sh
 ./bin/ddb/schem-load
 ```
+![image](assets/week5_ddb_schema-load_1.png)
+![image](assets/week5_ddb_list-tables_1)
+![image](assets/week5_ddb_drop-tables_1.png)
+![image](assets/week5_ddb_seed_data_1.png)
+![image](assets/week5_ddb_scan_1.png)
+![image](assets/week5_ddb_get-conversation.png)
+![image](assets/week5_ddb_list-conversations.png)
+
+![image](assets/week5_cognito-list-users_1.png)
+![image](assets/week5_ddb_update_cognito_user_ids_1.png)
 
 
 ## The Boundaries of DynamoDB
