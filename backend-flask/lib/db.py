@@ -28,6 +28,7 @@ class Db:
     connection_url = "postgresql://postgres:password@localhost:5432/cruddur"
     print('show connection_url', connection_url)
     self.pool = ConnectionPool(connection_url)
+    print('show post onnection_url')
   # we want to commit data such as an insert
   # be sure to check for RETURNING in all uppercases
   def print_params(self,params):
