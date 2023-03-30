@@ -230,4 +230,5 @@ def lambda_handler(event, context):
 ```
 lambda trigger logs
 ![image](assets/week5_create_message_aws_dynamo_db_4.png)
+![image](assets/week5_create_message_aws_dynamo_db_5.png)
 
