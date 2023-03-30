@@ -25,7 +25,7 @@ class Db:
 
   def init_pool(self):
     # connection_url = os.getenv("CONNECTION_URL")
-    connection_url = "postgresql://postgres:password@localhost:5432/cruddur"
+    connection_url = "postgresql://cruddurroot:Test1234@cruddur-db-instance.cjulsxu8bu7f.ca-central-1.rds.amazonaws.com:5432/cruddur"
     print('show connection_url', connection_url)
     self.pool = ConnectionPool(connection_url)
     print('show post onnection_url')
