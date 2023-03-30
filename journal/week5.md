@@ -115,7 +115,7 @@ Fixed by changing to prod rds
 ![image](assets/week5_seed_aws_rds_home_page.png)
 
 ## Issues on create messages on aws dynamodb
-Reseed the rds with data that match to aws cognito
+Reseed the rds with data that match to aws cognito. The cognito id is replace with mock but actual implementation is actual cognito id
 ![image](assets/week5_seed_aws_rds_match_cognito.png)
 ![image](assets/week5_create_message_aws_dynamo_db_2.png)
 ![image](assets/week5_create_message_aws_dynamo_db_3.png)
