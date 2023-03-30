@@ -108,6 +108,17 @@ WHERE
   AND message_groups.user_uuid = {{user_uuid}}
 ```
 
+## Issues on RDS Connection
+Fixed by changing to prod rds
+![image](assets/week5_local_rds_connecton_error.png)
+![image](assets/week5_connect_aws_rds.png)
+![image](assets/week5_seed_aws_rds_home_page.png)
+
+## Issues on create messages on aws dynamodb
+Reseed the rds with data that match to aws cognito
+![image](assets/week5_seed_aws_rds_match_cognito.png)
+![image](assets/week5_create_message_aws_dynamo_db_2.png)
+![image](assets/week5_create_message_aws_dynamo_db_3.png)
 
 ## Serverless Caching
 
@@ -217,3 +228,6 @@ def lambda_handler(event, context):
       )
       print("CREATE ===>",response)
 ```
+lambda trigger logs
+![image](assets/week5_create_message_aws_dynamo_db_4.png)
+
