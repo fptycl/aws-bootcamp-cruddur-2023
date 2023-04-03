@@ -69,8 +69,8 @@ else:
 ## Create CloudWatch Log Group
 
 ```sh
-aws logs create-log-group --log-group-name cruddur
-aws logs put-retention-policy --log-group-name cruddur --retention-in-days 1
+aws logs create-log-group --log-group-name "/cruddur/fargate-cluster"
+aws logs put-retention-policy --log-group-name "/cruddur/fargate-cluster" --retention-in-days 1
 ```
 
 ## Create ECS Cluster
