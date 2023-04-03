@@ -24,7 +24,7 @@ class Db:
     return template_content
 
   def init_pool(self):
-    connection_url = os.getenv("PROD_CONNECTION_URL")
+    connection_url = os.getenv("CONNECTION_URL")
     print('show connection_url', connection_url)
     self.pool = ConnectionPool(connection_url)
     print('show post onnection_url')
