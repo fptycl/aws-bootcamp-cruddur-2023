@@ -653,15 +653,33 @@ docker run -rm \
 -it backend-flask-prod
  ```
  
- #### Test Flask App is running in public url and service connect
+ ### Test Flask App is running in public url and service connect
  ![image](assets/week6_backend_container_public_url_1.png)
  ![image](assets/week6_backend_container_public_url_health_check_1.png)
  ![image](assets/week6_backend_container_public_activties_home_1.png)
  ![image](assets/week6_backend_container_service_connect_1.png)
  
- #### Setup load balancer and test Flask App is running in public url
+ ### Setup load balancer and test Flask App is running in public url
  ![image](assets/week6_load_balancer_1.png)
  ![image](assets/week6_load_balancer_2.png)
  
  
+ ### Domain hosted zone and SSL
+ ![image](assets/week6_ssl_acm_1.png)
+ ![image](assets/week6_hosted_zone.png)
+ 
+ ### Update records
+ ![image](assets/week6_set_record_frontend_backend_1.png)
+ ![image](assets/week6_record_domain_to_frontend_1.png)
+ ![image](assets/week6_route53_record_naked_api_to_lb_1.png)
+ ![image](assets/week6_verify_domain_1.png)
+ ![image](assets/week6_verify_domain_2.png)
+ 
+ ### Update cors
+ ![image](assets/week6_update_cors_1.png)
+ ![image](assets/week6_update_cors_2.png)
+ ![image](assets/week6_update_backend_task_definition_1.png)
+ ![image](assets/week6_update_frontend_service_to_refresh_image_1.png)
+ ![image](assets/week6_domain_works_1.png)
+ ![image](assets/week6_domain_works_2.png)
  
