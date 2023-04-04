@@ -549,6 +549,8 @@ Shell into the backend flask container and run the `./bin/db/test` script to ens
 #### Test Flask App is running
 
 `./bin/flask/health-check`
+
+
 ![image](assets/week6_container_health_check_1.png)
  
 Check our forwarding ports for the container
