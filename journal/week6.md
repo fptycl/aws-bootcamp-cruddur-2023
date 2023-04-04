@@ -113,6 +113,7 @@ export CRUD_CLUSTER_SG=$(aws ec2 describe-security-groups \
 ```sh
 aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
 ```
+![image](assets/week6_create-ecr_repo_1.png)
 
 ### For Base-image python
 
@@ -146,6 +147,8 @@ docker tag python:3.10-slim-buster $ECR_PYTHON_URL:3.10-slim-buster
 ```sh
 docker push $ECR_PYTHON_URL:3.10-slim-buster
 ```
+![image](assets/week6_create-ecr_repo_push_image_1.png)
+![image](assets/week6_create-ecr_repo_push_image_2.png)
 
 ### For Flask
 
@@ -160,6 +163,7 @@ aws ecr create-repository \
   --repository-name backend-flask \
   --image-tag-mutability MUTABLE
 ```
+![image](assets/week6_create_flask_ecr_1.png)
 
 #### Set URL
 
@@ -172,6 +176,7 @@ echo $ECR_BACKEND_FLASK_URL
 ```sh
 docker build -t backend-flask .
 ```
+![image](assets/week6_build_flask_docker_image_1.png)
 
 #### Tag Image
 
@@ -184,6 +189,8 @@ docker tag backend-flask:latest $ECR_BACKEND_FLASK_URL:latest
 ```sh
 docker push $ECR_BACKEND_FLASK_URL:latest
 ```
+![image](assets/week6_push_flask_to_ecr_1.png)
+![image](assets/week6_push_flask_to_ecr_2.png)
 
 ### For Frontend React
 
