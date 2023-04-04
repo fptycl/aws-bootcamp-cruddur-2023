@@ -200,6 +200,7 @@ aws ecr create-repository \
   --repository-name frontend-react-js \
   --image-tag-mutability MUTABLE
 ```
+![image](assets/week6_create_frontend_ecr_repo_1.png)
 
 #### Set URL
 
@@ -233,7 +234,7 @@ docker tag frontend-react-js:latest $ECR_FRONTEND_REACT_URL:latest
 ```sh
 docker push $ECR_FRONTEND_REACT_URL:latest
 ```
-
+![image](assets/week6_push_frontend_to_ecr_repo_1.png)
 
 If you want to run and test it
 
@@ -476,6 +477,9 @@ Health check pass!
 ```sh
 aws ecs register-task-definition --cli-input-json file://aws/task-definitions/frontend-react-js.json
 ```
+![image](assets/week6_frontend_task_definition_1.png)
+
+
 
 ### Create Security Group
 
@@ -528,6 +532,13 @@ aws ecs create-service --cli-input-json file://aws/json/service-backend-flask.js
 ```sh
 aws ecs create-service --cli-input-json file://aws/json/service-frontend-react-js.json
 ```
+
+![image](assets/week6_frontend_service_1.png)
+
+After service is launch all health check and url is working
+![image](assets/week6_frontend_container_health_check_1.png)
+![image](assets/week6_frontend_target_group_health_check_1.png)
+![image](assets/week6_frontend_load_balancer_public_url_1.png)
 
 > Auto Assign is not supported by EC2 launch type for services
 
