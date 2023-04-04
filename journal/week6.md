@@ -544,11 +544,13 @@ Use sessions manager to connect to the EC2 instance.
 
 Shell into the backend flask container and run the `./bin/db/test` script to ensure we have a database connection
 
+![image](assets/week6_backend_container_public_connection_rds_1.png)
 
 #### Test Flask App is running
 
 `./bin/flask/health-check`
-
+![image](assets/week6_container_health_check_1.png)
+ 
 Check our forwarding ports for the container
 
 ```sh
@@ -615,7 +617,6 @@ aws ecs execute-command  \
 ```
 
  ![image](assets/week6_connect_to_container_via_session_1.png)
- ![image](assets/week6_container_health_check_1.png)
  ![image](assets/week6_connect_to_container_via_ecs_script_1.png)
  
  ```sh
@@ -638,3 +639,16 @@ docker run -rm \
 -e AWS_COGNITO_USER_POOL_CLIENT_ID="5b6ro31g97urk767adrbrdj1g5" \   
 -it backend-flask-prod
  ```
+ 
+ #### Test Flask App is running in public url and service connect
+ ![image](assets/week6_backend_container_public_url_1.png)
+ ![image](assets/week6_backend_container_public_url_health_check_1.png)
+ ![image](assets/week6_backend_container_public_activties_home_1.png)
+ ![image](assets/week6_backend_container_service_connect_1.png)
+ 
+ #### Setup load balancer and test Flask App is running in public url
+ ![image](assets/week6_load_balancer_1.png)
+ ![image](assets/week6_load_balancer_2.png)
+ 
+ 
+ 
