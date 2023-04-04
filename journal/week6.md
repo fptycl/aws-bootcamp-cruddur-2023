@@ -470,7 +470,8 @@ Update the policy to enable ecs to pull image from ecr
 ```sh
 aws ecs register-task-definition --cli-input-json file://aws/task-definitions/backend-flask.json
 ```
-
+Health check pass!
+![image](assets/week6_backend_task_healthy_1.png)
 
 ```sh
 aws ecs register-task-definition --cli-input-json file://aws/task-definitions/frontend-react-js.json
@@ -522,6 +523,7 @@ aws ec2 authorize-security-group-ingress \
 ```sh
 aws ecs create-service --cli-input-json file://aws/json/service-backend-flask.json
 ```
+![image](assets/week6_create_backend_service_cli_1.png)
 
 ```sh
 aws ecs create-service --cli-input-json file://aws/json/service-frontend-react-js.json
@@ -594,6 +596,8 @@ aws ec2 reboot-instances --instance-ids i-0d15aef0618733b6d
  sudo dpkg -i session-manager-plugin.deb
  ```
  
+ ![image](assets/week6_install_session_manager_1.png)
+ 
  Verify its working
  ```sh
  session-manager-plugin
@@ -610,6 +614,10 @@ aws ecs execute-command  \
 --interactive
 ```
 
+ ![image](assets/week6_connect_to_container_via_session_1.png)
+ ![image](assets/week6_container_health_check_1.png)
+ ![image](assets/week6_connect_to_container_via_ecs_script_1.png)
+ 
  ```sh
 docker run -rm \
 -p 4567:4567 \
