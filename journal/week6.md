@@ -255,6 +255,7 @@ aws ssm put-parameter --type "SecureString" --name "/cruddur/backend-flask/CONNE
 aws ssm put-parameter --type "SecureString" --name "/cruddur/backend-flask/ROLLBAR_ACCESS_TOKEN" --value $ROLLBAR_ACCESS_TOKEN
 aws ssm put-parameter --type "SecureString" --name "/cruddur/backend-flask/OTEL_EXPORTER_OTLP_HEADERS" --value "x-honeycomb-team=$HONEYCOMB_API_KEY"
 ```
+![image](assets/week6_store_sensitive_data_to_parameter_store_1.png)
 
 ### Create Task and Exection Roles for Task Defintion
 
@@ -322,6 +323,10 @@ aws iam attach-role-policy \
   "Resource": "arn:aws:ssm:ca-central-1:387543059434:parameter/cruddur/backend-flask/*"
 }
 ```
+![image](assets/week6_Cruddur_service_execution_role_1.png)
+![image](assets/week6_Cruddur_service_execution_role_2.png)
+![image](assets/week6_Cruddur_service_execution_role_3.png)
+
 
 #### Create TaskRole
 
@@ -360,6 +365,7 @@ aws iam put-role-policy \
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/CloudWatchFullAccess --role-name CruddurTaskRole
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess --role-name CruddurTaskRole
 ```
+![image](assets/week6_Cruddur_task_role_1.png)
 
 ### Create Json file
 Create a new folder called `aws/task-defintions` and place the following files in there:
@@ -416,6 +422,11 @@ Create a new folder called `aws/task-defintions` and place the following files i
   ]
 }
 ```
+![image](assets/week6_backend_task_definition_1.png)
+
+Update the policy to enable ecs to pull image from ecr
+![image](assets/week6_backend_task_definition_execution_policy_1.png)
+
 
 `frontend-react.json`
 
