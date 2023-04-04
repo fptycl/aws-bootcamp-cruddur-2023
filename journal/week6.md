@@ -41,6 +41,7 @@ except psycopg.Error as e:
 finally:
   conn.close()
 ```
+![image](assets/week6_test_connection_1.png)
 
 ## Task Flask Script
 
@@ -66,12 +67,15 @@ else:
   print("Flask server is not running")
 ```
 
+![image](assets/week6_health_check_1.png)
+
 ## Create CloudWatch Log Group
 
 ```sh
 aws logs create-log-group --log-group-name "/cruddur/fargate-cluster"
 aws logs put-retention-policy --log-group-name "/cruddur/fargate-cluster" --retention-in-days 1
 ```
+![image](assets/week6_cloudwatch_fargate-cluster_1.png)
 
 ## Create ECS Cluster
 
@@ -80,6 +84,7 @@ aws ecs create-cluster \
 --cluster-name cruddur \
 --service-connect-defaults namespace=cruddur
 ```
+![image](assets/week6_create-ecs-cruddur_cluster_1.png)
 
 ```sh
 export CRUD_CLUSTER_SG=$(aws ec2 create-security-group \
