@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM 806329234304.dkr.ecr.ca-central-1.amazonaws.com/cruddur-python:3.10-slim-buster
 
 # working folder inside the container
 WORKDIR /backend-flask
@@ -10,8 +10,5 @@ RUN pip3 install -r requirements.txt
 # copy everything from outside container /backend-flask to inside container /backend-flask
 COPY . .
 
-#set environment varibales inside the container
-ENV FLASK_ENV=development
-
 EXPOSE ${PORT}
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567", "--debug"]
