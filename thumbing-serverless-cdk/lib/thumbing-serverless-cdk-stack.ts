@@ -7,7 +7,7 @@ import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import { Construct } from 'constructs';
 import * as dotenv from 'dotenv';
-
+// const dotenv = require('dotenv');
 dotenv.config();
 
 export class ThumbingServerlessCdkStack extends cdk.Stack {
