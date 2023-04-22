@@ -32,6 +32,7 @@ We'll initialize a new cdk project within the folder we created:
 ```sh
 cdk init app --language typescript
 ```
+![image](assets/week8_cdk_init_1.png)
 
 ## Add an S3 Bucket
 
@@ -235,3 +236,10 @@ const snsPublishPolicy = this.createPolicySnSPublish(snsTopic.topicArn)
 lambda.addToRolePolicy(s3ReadWritePolicy);
 lambda.addToRolePolicy(snsPublishPolicy);
 ```
+
+## CDK synth
+This will help to check the cdk code before deploy
+* A few chnages need to be made. 
+* Domain name have to be our own domain url.
+* S3 bucket also need to be our own s3 bucket.
+![image](assets/week8_cdk_synth_1.png)
