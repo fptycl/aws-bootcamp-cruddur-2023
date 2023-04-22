@@ -252,9 +252,9 @@ This will help to check the cdk code before deploy
 ## Avatar upload and trigger lambda to process image and place it in assests s3 bucket
 ![image](assets/week8_avatar_upload_1.png)
 ![image](assets/week8_avatar_upload_2.png)
-Trigger lambda
+## Trigger lambda
 ![image](assets/week8_avatar_upload_3.png)
-Image processed and put in designated s3 bucket
+## Image processed and put in designated s3 bucket
 ![image](assets/week8_avatar_upload_4.png)
 
 ## cloudfront serving avatar example
