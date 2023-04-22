@@ -237,9 +237,25 @@ lambda.addToRolePolicy(s3ReadWritePolicy);
 lambda.addToRolePolicy(snsPublishPolicy);
 ```
 
-## CDK synth
+## cdk synth
 This will help to check the cdk code before deploy
 * A few chnages need to be made. 
 * Domain name have to be our own domain url.
 * S3 bucket also need to be our own s3 bucket.
+* Require to install npm install dotenv --save else the import dotenv will not work
 ![image](assets/week8_cdk_synth_1.png)
+
+## cdk deploy
+* Require to run cdk bootstrap for cdk deploy
+![image](assets/week8_cdk_deploy_2.png)
+
+## Avatar upload and trigger lambda to process image and place it in assests s3 bucket
+![image](assets/week8_avatar_upload_1.png)
+![image](assets/week8_avatar_upload_2.png)
+Trigger lambda
+![image](assets/week8_avatar_upload_3.png)
+Image processed and put in designated s3 bucket
+![image](assets/week8_avatar_upload_4.png)
+
+## cloudfront serving avatar example
+![image](assets/week8_avatar_cloudfront_1.png)
