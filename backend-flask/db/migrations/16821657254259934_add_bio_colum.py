@@ -11,9 +11,9 @@ class AddBioColumnMigration:
     """
     return data
   def migrate():
-    db.query_commit(AddBioColumMigration.migrate_sql(),{
+    db.query_commit(AddBioColumnMigration.migrate_sql(),{
     })
   def rollback():
-    db.query_commit(AddBioColumMigration.rollback_sql(),{
+    db.query_commit(AddBioColumnMigration.rollback_sql(),{
     })
 migration = AddBioColumnMigration
