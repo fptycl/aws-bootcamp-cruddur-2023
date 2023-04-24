@@ -259,3 +259,23 @@ This will help to check the cdk code before deploy
 
 ## cloudfront serving avatar example
 ![image](assets/week8_avatar_cloudfront_1.png)
+
+## Update to the cognito user script in order to solve the import lib.db
+Need to append the sys path else the import lib.db will fail
+![image](assets/week8_update_cognito_user_ids_backend_path_1.png)
+
+## Update to profile 
+Need to change the profile to our own login else it will not load correctly
+![image](assets/week8_profile_own_user_1.png)
+
+# Profile page
+Successful load the profile page with the avatar and banner from s3. 
+![image](assets/week8_user_profile_1.png)
+
+# Migration
+![image](assets/week8_migration_1.png)
+
+# Install aws-sdk for s3
+```sh
+npm i aws-sdk/client-s3 --save
+```
