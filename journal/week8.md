@@ -268,14 +268,22 @@ Need to append the sys path else the import lib.db will fail
 Need to change the profile to our own login else it will not load correctly
 ![image](assets/week8_profile_own_user_1.png)
 
-# Profile page
+## Profile page
 Successful load the profile page with the avatar and banner from s3. 
 ![image](assets/week8_user_profile_1.png)
 
-# Migration
+## Migration
 ![image](assets/week8_migration_1.png)
 
-# Install aws-sdk for s3
+## Presigned URL generation via Ruby Lambda 
+Install aws-sdk for s3
 ```sh
 npm i aws-sdk/client-s3 --save
+```
+ruby lambda
+Creata a new folder cruddur-upload-avatar under aws/lambda
+```sh
+cd aws/lambda/cruddur-upload-avatar
+bundle init
+bundle install
 ```
