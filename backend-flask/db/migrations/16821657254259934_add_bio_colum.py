@@ -1,5 +1,5 @@
 from lib.db import db
-class AddBioColumMigration:
+class AddBioColumnMigration:
   def migrate_sql():
     data = """
     ALTER TABLE public.users ADD COLUMN bio text;
