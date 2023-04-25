@@ -296,5 +296,9 @@ ruby exec function.rb
 ```sh
 bundle exec ruby function.rb
 ```
-
+install lambda authorizer
+```sh
+cd lambda-authorizer
+npm install aws-jwt-verify --save
+```
 
