@@ -287,3 +287,10 @@ cd aws/lambda/cruddur-upload-avatar
 bundle init
 bundle install
 ```
+create the env for upload bucket name
+```sh
+export UPLOADS_BUCKET_NAME="flowerpot76-uploaded-avatars"
+gp env UPLOADS_BUCKET_NAME="flowerpot76-uploaded-avatars"
+```
+
+
