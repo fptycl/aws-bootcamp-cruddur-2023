@@ -292,5 +292,9 @@ create the env for upload bucket name
 export UPLOADS_BUCKET_NAME="flowerpot76-uploaded-avatars"
 gp env UPLOADS_BUCKET_NAME="flowerpot76-uploaded-avatars"
 ```
+ruby exec function.rb
+```sh
+bundle exec ruby function.rb
+```
 
 
