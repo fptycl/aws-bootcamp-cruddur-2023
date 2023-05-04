@@ -308,13 +308,12 @@ npm install aws-jwt-verify --save
 ## User profile
 ![image](assets/week8_profile_own_user_1.png)
 ![image](assets/week8_edit_bio_1.png)
-![image](assets/week8_user_profile_1.png)
 
 ## Create gem_file
 ![image](assets/week8_bundle_init_create_gem_file_1.png)
 ![image](assets/week8_bundle_install_1.png)
 
-## Create gem_file
+## Create lambda
 ![image](assets/week8_lambda_s3_env_1.png)
 ![image](assets/week8_lambda_function_name_1.png)
 ![image](assets/week8_lambda_rename_function_name_1.png)
