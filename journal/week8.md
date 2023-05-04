@@ -302,3 +302,27 @@ cd lambda-authorizer
 npm install aws-jwt-verify --save
 ```
 
+## Update cognito user ids backend path
+![image](assets/week8_update_cognito_user_ids_backend_path_1.png)
+
+## User profile
+![image](assets/week8_profile_own_user_1.png)
+![image](assets/week8_edit_bio_1.png)
+![image](assets/week8_user_profile_1.png)
+
+## Create gem_file
+![image](assets/week8_bundle_init_create_gem_file_1.png)
+![image](assets/week8_bundle_install_1.png)
+
+## Create gem_file
+![image](assets/week8_lambda_s3_env_1.png)
+![image](assets/week8_lambda_function_name_1.png)
+![image](assets/week8_lambda_rename_function_name_1.png)
+
+## JWT
+![image](assets/week8_upload_jwt_1.png)
+![image](assets/week8_add_lambda_layer_1.png)
+![image](assets/week8_decode_token_for_reference.png)
+
+## Render Avatar
+![image](assets/week8_render_avatar_1.png)
