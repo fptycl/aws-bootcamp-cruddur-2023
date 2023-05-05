@@ -1,5 +1,7 @@
 # Week 9 — CI/CD with CodePipeline, CodeBuild and CodeDeploy
 
+*need to include AmazonEC2ContainerRegistryFullAccess policy in the build project policy and ecr:GetAuthorizationToken in the ecr permission in order for the cobe build to work
+
 ## Setup prod branch
 ![image](assets/week9_prod_branch_1.png)
 
@@ -13,4 +15,3 @@
 ![image](assets/week9_setup_code_pipeline_4.png)
 
 
-*need to include AmazonEC2ContainerRegistryFullAccess policy in the build project policy and ecr:GetAuthorizationToken in the ecr permission in order for the cobe build to work
