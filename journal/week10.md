@@ -24,3 +24,9 @@ cfn-guard rulegen --template /worksapce/aws-bootcamp-cruddur-2023/aws/cfn/templa
 cd aws/cfn
 cfn-guard validate -r ecs-cluster.guard 
 ```
+
+### Cloudformatio diagram
+
+![image](assets/week10_cloudformation_1.png)
+
+https://lucid.app/lucidchart/2c11fd99-afb8-4bda-ac3a-230efca253f9/edit?view_items=QedXzYGLV-oV&invitationId=inv_eea7ac30-56a4-45a8-a203-b9df63cc88c0
