@@ -1,5 +1,5 @@
 [deploy]
-bucket = 'cfn-artifacts'
+bucket = 'cfn-artifacts-flowerpot'
 region = 'ca-central-1'
 stack_name = 'CrdDb'
 
