@@ -23,7 +23,7 @@ export default function UserFeedPage() {
   const params = useParams();
 
   const loadData = async () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/@${params.handle}`
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/@${params.handle}`a
     get(url,{
       auth: false,
       success: function(data){
