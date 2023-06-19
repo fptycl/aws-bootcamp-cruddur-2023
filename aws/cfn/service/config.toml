@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts-flowerpot'
+region = 'ca-central-1'
+stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'https://flowerpot76.com'
+EnvBackendUrl = 'https://api.flowerpot76.com'
+DDBMessageTable = 'CrdDdb-DynamoDBTable-28IADWEY46MQ'

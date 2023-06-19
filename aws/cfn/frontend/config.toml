@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts-flowerpot'
+region = 'ca-central-1'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:806329234304:certificate/c06f913f-13d4-41b4-b615-6b7630d82f74'
+WwwBucketName = 'www.flowerpot76.com'
+RootBucketName = 'flowerpot76.com'

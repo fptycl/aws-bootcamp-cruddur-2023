@@ -1,0 +1,12 @@
+[deploy]
+bucket = 'cfn-artifacts-flowerpot'
+region = 'ca-central-1'
+stack_name = 'CrdCicd'
+
+[parameters]
+ServiceStack = 'CrdSrvBackendFlask'
+ClusterStack = 'CrdCluster'
+GitHubBranch = 'prod'
+GithubRepo = 'fptycl/aws-bootcamp-cruddur-2023'
+ArtifactBucketName = "codepipeline-flowerpot76-artifacts"
+BuildSpec = 'backend-flask/buildspec.yml'
